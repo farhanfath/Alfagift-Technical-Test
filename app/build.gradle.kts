@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "gli.intern.technicaltestintern_2"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "gli.intern.technicaltestintern_2"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 

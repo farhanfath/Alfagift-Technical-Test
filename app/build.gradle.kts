@@ -45,4 +45,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // ViewModel & LiveData
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+
+    // Koin
+    implementation (libs.koin.android)
+
+    // Glide
+    implementation (libs.glide)
 }

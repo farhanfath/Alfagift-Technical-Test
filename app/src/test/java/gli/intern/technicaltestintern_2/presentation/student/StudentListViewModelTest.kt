@@ -7,6 +7,7 @@ import gli.intern.technicaltestintern_2.utils.getOrAwaitValue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 
@@ -17,7 +18,8 @@ class StudentListViewModelTest {
     private lateinit var viewModel: StudentListViewModel
 
     @Test
-    fun `loadStudents should update Livedata with mock data`() {
+    @DisplayName("loadStudents should update Livedata with mock data")
+    fun loadStudents() {
         val mockRepository = Mockito.mock(StudentRepository::class.java)
         val mockStudentList = StudentConstants.STUDENT_LIST
 

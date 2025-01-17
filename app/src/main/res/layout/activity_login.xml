@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="fitXY"
+        android:contentDescription="@string/desc_wave_bg"
         android:src="@drawable/wave_bg"
         app:tint="@color/primary"/>
 
@@ -48,7 +49,8 @@
                     android:id="@+id/emailEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +67,8 @@
                     android:id="@+id/passEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
-                android:text="Forgot Password?"
+                android:text="@string/forget_pass_txt"
                 android:textColor="@color/blue"/>
 
             <com.google.android.material.button.MaterialButton
@@ -83,11 +86,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginTop="32dp"
-                android:text="Login"
+                android:text="@string/login_btn_text"
                 android:textAllCaps="false"
                 android:textSize="16sp"
                 app:cornerRadius="12dp"
-                android:backgroundTint="@color/primary"/>
+                android:backgroundTint="@color/primary"
+                tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

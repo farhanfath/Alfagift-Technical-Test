@@ -1,21 +1,23 @@
 package gli.intern.technicaltestintern_2.data.repository
 
 import gli.intern.technicaltestintern_2.data.constants.StudentConstants
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
 
 class StudentRepositoryImplTest {
+
     private lateinit var repository: StudentRepositoryImpl
-    
+
     @Before
     fun setup() {
         repository = StudentRepositoryImpl()
     }
 
     @Test
-    fun `getStudentsFunction should return correct list from constants`() {
+    @DisplayName("getStudentsFunction should return the correct list from constants")
+    fun getStudentsReturnsCorrectList() {
 
         val result = repository.getStudents()
 

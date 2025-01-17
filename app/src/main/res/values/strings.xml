@@ -17,4 +17,6 @@
     <string name="back_desc">Kembali Kehalaman Sebelumnya</string>
     <string name="students_text">Students</string>
     <string name="welcome_text">Selamat Datang</string>
+    <string name="more_desc">more option</string>
+    <string name="desc_wave_bg">Decoration Wave</string>
 </resources>

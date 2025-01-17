@@ -2,10 +2,13 @@ package gli.intern.technicaltestintern_2.domain.model
 
 import org.junit.Assert
 import org.junit.Test
+import org.junit.jupiter.api.DisplayName
 
 class StudentTest {
+
     @Test
-    fun `Student data should have correct properties`() {
+    @DisplayName("Student data should have correct properties")
+    fun studentDataHasCorrectProperties() {
         val student = Student(
             id = 1,
             name = "John Doe",

@@ -2,7 +2,7 @@
     <string name="app_name">TechnicalTestIntern-2</string>
 
     <string name="login_text">Login</string>
-    <string name="email_text">Email Anda</string>
+    <string name="user_text">Username Anda</string>
     <string name="pass_text">Password Anda</string>
     <string name="login_btn_text">MASUK</string>
     <string name="forget_pass_txt">Lupa password?</string>
@@ -14,4 +14,7 @@
     <string name="back_image_button_desc">back</string>
     <string name="list_contact_text">Contact List</string>
     <string name="login_failed">Username atau Password salah</string>
+    <string name="back_desc">Kembali Kehalaman Sebelumnya</string>
+    <string name="students_text">Students</string>
+    <string name="welcome_text">Selamat Datang</string>
 </resources>

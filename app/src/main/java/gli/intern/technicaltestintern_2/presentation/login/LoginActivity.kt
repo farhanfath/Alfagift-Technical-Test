@@ -28,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this) { loginSuccess ->
             if (loginSuccess) {
                 startActivity(Intent(this, StudentListActivity::class.java))
-                finish()
             } else {
                 Toast.makeText(this, R.string.login_failed, Toast.LENGTH_SHORT).show()
             }

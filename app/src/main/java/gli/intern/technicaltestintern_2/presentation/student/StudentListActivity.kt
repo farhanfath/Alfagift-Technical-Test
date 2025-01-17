@@ -18,6 +18,10 @@ class StudentListActivity : AppCompatActivity() {
         binding = ActivityStudentListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         setupRecyclerView()
 
         studentViewModel.students.observe(this) { students ->

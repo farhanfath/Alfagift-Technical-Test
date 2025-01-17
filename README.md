@@ -43,13 +43,13 @@ This project highlights my ability to:
 
 ## Folder Structure
 ```
-AlfagiftStudentApp
+Alfagift-Intern-Assessment
 ├── app
 │   ├── build.gradle
 │   ├── src
 │   │   ├── main
 │   │   │   ├── java
-│   │   │   │   ├── com.alfagift.studentapp
+│   │   │   │   ├── gli.intern.technicaltestintern_2
 │   │   │   │   │   ├── di          # Dependency injection setup
 │   │   │   │   │   ├── domain      # Domain layer (Use cases, Models)
 │   │   │   │   │   ├── data        # Data layer (Repositories, Data Sources)

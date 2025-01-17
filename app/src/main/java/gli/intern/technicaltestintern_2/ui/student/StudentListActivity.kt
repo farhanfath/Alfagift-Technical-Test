@@ -1,10 +1,10 @@
-package gli.intern.technicaltestintern_2.presentation.student
+package gli.intern.technicaltestintern_2.ui.student
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import gli.intern.technicaltestintern_2.databinding.ActivityStudentListBinding
-import gli.intern.technicaltestintern_2.presentation.student.adapter.StudentAdapter
+import gli.intern.technicaltestintern_2.ui.student.adapter.StudentAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StudentListActivity : AppCompatActivity() {

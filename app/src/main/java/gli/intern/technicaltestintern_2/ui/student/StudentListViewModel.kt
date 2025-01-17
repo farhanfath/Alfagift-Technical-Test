@@ -1,4 +1,4 @@
-package gli.intern.technicaltestintern_2.presentation.student
+package gli.intern.technicaltestintern_2.ui.student
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

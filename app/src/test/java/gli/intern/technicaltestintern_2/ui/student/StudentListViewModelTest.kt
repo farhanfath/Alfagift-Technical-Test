@@ -1,4 +1,4 @@
-package gli.intern.technicaltestintern_2.presentation.student
+package gli.intern.technicaltestintern_2.ui.student
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import gli.intern.technicaltestintern_2.data.constants.StudentConstants

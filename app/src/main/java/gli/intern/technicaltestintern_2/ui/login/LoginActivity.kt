@@ -1,4 +1,4 @@
-package gli.intern.technicaltestintern_2.presentation.login
+package gli.intern.technicaltestintern_2.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import gli.intern.technicaltestintern_2.R
 import gli.intern.technicaltestintern_2.databinding.ActivityLoginBinding
-import gli.intern.technicaltestintern_2.presentation.student.StudentListActivity
+import gli.intern.technicaltestintern_2.ui.student.StudentListActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {

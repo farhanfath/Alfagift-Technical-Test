@@ -1,4 +1,4 @@
-package gli.intern.technicaltestintern_2.presentation.login
+package gli.intern.technicaltestintern_2.ui.login
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import gli.intern.technicaltestintern_2.utils.getOrAwaitValue

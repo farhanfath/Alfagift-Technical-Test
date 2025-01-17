@@ -1,4 +1,4 @@
-package gli.intern.technicaltestintern_2.presentation.student.adapter
+package gli.intern.technicaltestintern_2.ui.student.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

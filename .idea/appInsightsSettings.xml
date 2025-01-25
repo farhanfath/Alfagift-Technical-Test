@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="gli.intern.technicaltestintern_2" />
+                  <option name="mobileSdkAppId" value="1:639816752683:android:e64846a06a502e3860d46e" />
+                  <option name="projectId" value="tech-intern-test" />
+                  <option name="projectNumber" value="639816752683" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

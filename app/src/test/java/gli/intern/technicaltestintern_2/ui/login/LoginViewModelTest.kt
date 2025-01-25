@@ -65,4 +65,13 @@ class LoginViewModelTest {
         val result = viewModel.loginResult.getOrAwaitValue()
         assertFalse(result)
     }
+
+    @Test
+    @DisplayName("Login with empty credentials should return false")
+    fun loginWithEmptyCredentials() {
+        viewModel.login("", "")
+
+        val result = viewModel.loginResult.getOrAwaitValue()
+        assertFalse(result)
+    }
 }

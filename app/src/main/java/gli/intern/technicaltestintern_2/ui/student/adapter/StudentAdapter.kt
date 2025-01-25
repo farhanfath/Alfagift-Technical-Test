@@ -8,7 +8,9 @@ import com.bumptech.glide.Glide
 import gli.intern.technicaltestintern_2.databinding.ItemStudentBinding
 import gli.intern.technicaltestintern_2.domain.model.Student
 
-class StudentAdapter : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
+class StudentAdapter(
+    private val onDeleteClick : (String) -> Unit
+) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
     private var students = listOf<Student>()
 
     fun setStudents(newStudents: List<Student>) {
@@ -24,7 +26,7 @@ class StudentAdapter : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() 
             parent,
             false
         )
-        return StudentViewHolder(binding)
+        return StudentViewHolder(binding, onDeleteClick)
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
@@ -33,7 +35,10 @@ class StudentAdapter : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() 
 
     override fun getItemCount() = students.size
 
-    class StudentViewHolder(private val binding: ItemStudentBinding) : RecyclerView.ViewHolder(binding.root) {
+    class StudentViewHolder(
+        private val binding: ItemStudentBinding,
+        private val onDeleteClick: (String) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(student: Student) {
             binding.userName.text = student.name
@@ -42,6 +47,10 @@ class StudentAdapter : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() 
                 .load(student.profilePicture)
                 .circleCrop()
                 .into(binding.profileImage)
+
+            binding.btnDelete.setOnClickListener {
+                onDeleteClick(student.id)
+            }
         }
     }
 

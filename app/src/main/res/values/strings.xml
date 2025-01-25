@@ -17,6 +17,13 @@
     <string name="back_desc">Kembali Kehalaman Sebelumnya</string>
     <string name="students_text">Students</string>
     <string name="welcome_text">Selamat Datang</string>
-    <string name="more_desc">more option</string>
+    <string name="delete_desc">Delete Data</string>
     <string name="desc_wave_bg">Decoration Wave</string>
+    <string name="nameText">Nama</string>
+    <string name="addressText">Alamat</string>
+    <string name="tambah_data">tambah data</string>
+    <string name="delete_confirmation_text">Are you sure you want to delete this student?</string>
+    <string name="delete_dialog_text">Delete Student</string>
+    <string name="add_dialog_text">Add Student</string>
+    <string name="empty_text">no data found</string>
 </resources>

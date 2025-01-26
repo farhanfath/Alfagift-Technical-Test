@@ -12,7 +12,7 @@ The application consists of two main features:
 
 2. **List of Students Feature**
     - Displays a list of 10 students with their names, profile pictures, and addresses.
-    - Data is loaded locally.
+    - Data is fetched from Firebase Firestore.
     - Utilizes RecyclerView for displaying the list.
 
 ## Features
@@ -24,11 +24,13 @@ The application consists of two main features:
 - **Student List Page**
     - Displays a list of students in a RecyclerView.
     - Each student item includes a name, profile picture, and address.
+    - Real-time data sync from Firebase Firestore.
 
 ## Technologies Used
 - **Kotlin** for native Android development.
 - **Jetpack Components** (ViewModel, LiveData, etc.).
 - **Koin** for dependency injection.
+- **Firebase Firestore** for data storage and retrieval.
 - **RecyclerView** for the student list.
 - **Clean Architecture** for code organization and maintainability.
 - **JUnit 5** for unit testing.
@@ -45,6 +47,7 @@ This project highlights my ability to:
 ```
 Alfagift-Intern-Assessment
 ├── app
+|   ├── google-services.json        # Firebase configuration file
 │   ├── build.gradle
 │   ├── src
 │   │   ├── main
@@ -65,6 +68,62 @@ Alfagift-Intern-Assessment
 └── README.md
 ```
 
+## Firebase Setup
+
+### Prerequisites
+- Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+- Add an Android app to your Firebase project
+
+### Firebase Configuration Steps
+1. **Download google-services.json**
+    - In Firebase Console, go to Project Settings
+    - Select your Android app
+    - Click "Download google-services.json"
+
+2. **Project-level build.gradle**
+   Add the following to your project's `build.gradle`:
+   ```groovy
+   buildscript {
+       dependencies {
+           classpath 'com.google.gms:google-services:4.4.0'
+       }
+   }
+   ```
+
+3. **App-level build.gradle**
+   Apply the following plugins and dependencies:
+   ```groovy
+   plugins {
+       id 'com.android.application'
+       id 'com.google.gms.google-services'
+   }
+
+   dependencies {
+       // Firebase Firestore
+       implementation 'com.google.firebase:firebase-firestore-ktx:24.10.0'
+       
+       // Other existing dependencies...
+   }
+   ```
+
+4. **Place google-services.json**
+    - Copy the downloaded `google-services.json`
+    - Place it in the `app/` directory of your project
+
+5. **Sync Project**
+    - Sync your project with Gradle files
+    - Rebuild the project
+
+## Firestore Data Structure
+Ensure your Firestore collection follows this structure:
+```
+students (collection)
+└── studentDocument
+    ├── name: String
+    ├── address: String
+    └── profilePictureUrl: String
+```
+
 ## Getting Started
 
 1. **Clone the Repository**
@@ -72,13 +131,17 @@ Alfagift-Intern-Assessment
    git clone https://github.com/your-username/AlfagiftStudentApp.git
    cd AlfagiftStudentApp
    ```
+   
+2. **Firebase Setup**
+    - Follow the Firebase Configuration Steps above
+    - Ensure `google-services.json` is added
 
-2. **Setup and Run the Project**
+3. **Setup and Run the Project**
     - Open the project in Android Studio.
     - Sync Gradle dependencies.
     - Run the app on an emulator or physical device.
 
-3. **Dependencies**
+4. **Dependencies**
     - Ensure you have the latest Android Studio and Kotlin version installed.
 
 ## Screenshots

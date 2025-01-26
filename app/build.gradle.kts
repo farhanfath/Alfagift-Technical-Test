@@ -58,6 +58,9 @@ dependencies {
     testImplementation (libs.kotlinx.coroutines.test)
     testImplementation (libs.androidx.core.testing)
     testImplementation (libs.mockk)
+    testImplementation("org.slf4j:slf4j-simple:2.0.16")
+    testImplementation("org.slf4j:slf4j-api:2.0.16")
+
 
     // ViewModel & LiveData
     implementation (libs.androidx.lifecycle.viewmodel.ktx)

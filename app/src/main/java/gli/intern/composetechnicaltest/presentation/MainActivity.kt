@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import gli.intern.composetechnicaltest.navigation.AppNavigation
 import gli.intern.composetechnicaltest.presentation.ui.theme.ComposeTechnicalTestTheme
 
 class MainActivity : ComponentActivity() {
@@ -12,14 +14,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ComposeTechnicalTestTheme {
-                MyApp()
+            MyApp {
+                AppNavigation()
             }
         }
     }
 }
 
 @Composable
-fun MyApp() {
-
+fun MyApp(content: @Composable () -> Unit = {}) {
+    ComposeTechnicalTestTheme(dynamicColor = false, darkTheme = false) {
+        content()
+    }
 }

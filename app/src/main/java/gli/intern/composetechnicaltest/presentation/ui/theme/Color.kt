@@ -1,4 +1,4 @@
-package gli.intern.composetechnicaltest.ui.theme
+package gli.intern.composetechnicaltest.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

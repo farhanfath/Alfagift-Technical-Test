@@ -2,12 +2,12 @@ package gli.intern.composetechnicaltest.navigation
 
 enum class AppScreens {
     LoginScreen,
-    StudentLitScreen;
+    StudentListScreen;
     companion object {
         fun fromRoute(route: String?): AppScreens {
             return when (route?.substringBefore("/")) {
                 LoginScreen.name -> LoginScreen
-                StudentLitScreen.name -> StudentLitScreen
+                StudentListScreen.name -> StudentListScreen
                 null -> LoginScreen
                 else -> throw IllegalArgumentException("Route $route is not recognized.")
             }

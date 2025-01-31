@@ -31,7 +31,8 @@ The application consists of two main features:
 - **Jetpack Components** (ViewModel, LiveData, etc.).
 - **Koin** for dependency injection.
 - **Firebase Firestore** for data storage and retrieval.
-- **RecyclerView** for the student list.
+- **Jetpack Compose** Modern UI toolkit for building native Android interfaces.
+- **Jetpack Navigation** Simplified navigation between screens in a composable environment
 - **Clean Architecture** for code organization and maintainability.
 - **JUnit 5** for unit testing.
 
@@ -39,7 +40,6 @@ The application consists of two main features:
 This project highlights my ability to:
 - Structure code using **MVVM** and **Clean Architecture** for better maintainability and scalability.
 - Implement **dependency injection** using **Koin** for efficient dependency management.
-- Utilize **RecyclerView** for building dynamic and efficient UI components.
 - Write and execute unit tests using **JUnit 5** to ensure code quality and reliability.
 - Ensure robust input validation and smooth user experience.
 

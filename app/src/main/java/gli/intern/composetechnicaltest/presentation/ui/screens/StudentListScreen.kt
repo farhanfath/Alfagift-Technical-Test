@@ -1,5 +1,6 @@
 package gli.intern.composetechnicaltest.presentation.ui.screens
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -54,6 +55,7 @@ import gli.intern.composetechnicaltest.navigation.AppScreens
 import gli.intern.composetechnicaltest.presentation.ui.components.AddStudentDialog
 import gli.intern.composetechnicaltest.presentation.ui.components.DeleteStudentDialog
 import gli.intern.composetechnicaltest.presentation.ui.components.EditStudentDialog
+import gli.intern.composetechnicaltest.presentation.ui.components.ImageLoader
 import gli.intern.composetechnicaltest.presentation.ui.components.MoreOptionMenu
 import gli.intern.composetechnicaltest.presentation.ui.theme.PrimaryColor
 import gli.intern.composetechnicaltest.presentation.viewmodel.StudentListViewModel
@@ -241,12 +243,7 @@ fun OddStudentItem(
                     .background(Color.Red.copy(alpha = 0.1f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null,
-                    tint = Color.Red,
-                    modifier = Modifier.size(24.dp)
-                )
+                ImageLoader(student.profilePicture)
             }
 
             Column(
@@ -319,12 +316,8 @@ fun EvenStudentItem(
                     .background(Color.Red.copy(alpha = 0.1f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = null,
-                    tint = Color.Red,
-                    modifier = Modifier.size(24.dp)
-                )
+                ImageLoader(student.profilePicture)
+                Log.d("ImageLoader", "Image URL: ${student.profilePicture}")
             }
 
             MoreOptionMenu(

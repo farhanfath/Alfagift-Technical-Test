@@ -2,15 +2,22 @@ package gli.intern.composetechnicaltest.presentation.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.BasicAlertDialog
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -30,12 +37,12 @@ import gli.intern.composetechnicaltest.presentation.ui.theme.GreyColor
 import gli.intern.composetechnicaltest.presentation.ui.theme.PrimaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview
 @Composable
 fun EditStudentDialog(
-    student: Student,
+    student: Student = Student("1", "example name", "test", "example address"),
     onDismiss: () -> Unit = {},
-    onEdit : (Student) -> Unit = {},
-    onDelete : () -> Unit = {}
+    onEdit : (Student) -> Unit = {}
 ) {
     var name by remember { mutableStateOf(student.name) }
     var address by remember { mutableStateOf(student.address) }
@@ -78,11 +85,8 @@ fun EditStudentDialog(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+                horizontalArrangement = Arrangement.End
             ) {
-                TextButton(onClick = onDelete) {
-                    Text("Delete", color = Color.Red)
-                }
                 Row {
                     TextButton(onClick = onDismiss) {
                         Text("Cancel")
@@ -198,6 +202,45 @@ fun DeleteStudentDialog(
                     Text("Delete")
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun MoreOptionMenu(
+    onEditClick : () -> Unit = {},
+    onDeleteClick : () -> Unit = {}
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Box {
+        IconButton(onClick = { expanded = true }) {
+            Icon(
+                imageVector = Icons.Default.MoreVert,
+                contentDescription = "More Options"
+            )
+        }
+
+        DropdownMenu(
+            modifier = Modifier
+                .background(color = Color.White),
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            DropdownMenuItem(
+                text = { Text(text = "Edit") },
+                onClick = {
+                    expanded = false
+                    onEditClick()
+                }
+            )
+            DropdownMenuItem(
+                text = { Text(text = "Delete") },
+                onClick = {
+                    expanded = false
+                    onDeleteClick()
+                }
+            )
         }
     }
 }

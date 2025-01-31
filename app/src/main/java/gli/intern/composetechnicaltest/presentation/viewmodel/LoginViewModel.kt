@@ -8,12 +8,23 @@ class LoginViewModel : ViewModel() {
     private val _loginResult = MutableLiveData<Boolean>()
     val loginResult: LiveData<Boolean> = _loginResult
 
-    fun login(username: String, password: String) {
-        if (username.isEmpty() || password.isEmpty()) {
-            _loginResult.value = false
-            return
-        }
+    private val _errorMessage = MutableLiveData<String?>(null)
+    val errorMessage: LiveData<String?> = _errorMessage
 
-        _loginResult.value = username == "alfagift-admin" && password == "asdf"
+    fun login(username: String, password: String) {
+        when {
+            username.isEmpty() || password.isEmpty() -> {
+                _loginResult.value = false
+                _errorMessage.value = "Please fill all fields"
+            }
+            username == "alfagift-admin" && password == "asdf" -> {
+                _loginResult.value = true
+                _errorMessage.value = null
+            }
+            else -> {
+                _loginResult.value = false
+                _errorMessage.value = "Invalid username or password"
+            }
+        }
     }
 }

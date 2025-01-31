@@ -3,6 +3,7 @@ package gli.intern.composetechnicaltest.presentation.ui.screens
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -32,6 +34,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
@@ -51,25 +55,27 @@ fun LoginScreen(navController: NavController, viewModel : LoginViewModel = koinV
     val passwordVisible = remember { mutableStateOf(false) }
 
     val loginResult by viewModel.loginResult.observeAsState()
+    val errorMessage by viewModel.errorMessage.observeAsState(initial = false)
     val context = LocalContext.current
 
     LaunchedEffect(loginResult) {
         when(loginResult) {
             true -> navController.navigate(route = AppScreens.StudentListScreen.name)
-            false -> Toast.makeText(context, "Login gagal. Periksa username dan password.", Toast.LENGTH_SHORT).show()
-            else -> {}
+            false -> Toast.makeText(context, "$errorMessage", Toast.LENGTH_SHORT).show()
+            null -> {}
         }
     }
 
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Image(
-            painter = painterResource(id = R.drawable.wave_bg),
-            contentDescription = "TopBar Background",
-            modifier = Modifier.fillMaxWidth()
-        )
+    Image(
+        painter = painterResource(id = R.drawable.wave_bg),
+        contentDescription = "TopBar Background",
+        modifier = Modifier.fillMaxWidth()
+    )
 
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
@@ -86,7 +92,7 @@ fun LoginScreen(navController: NavController, viewModel : LoginViewModel = koinV
                 .fillMaxWidth()
                 .padding(16.dp)
                 .border(width = 1.dp, color = Color.Black, shape = RoundedCornerShape(corner = CornerSize(8.dp))),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             OutlinedTextField(
                 value = username.value,
@@ -106,7 +112,11 @@ fun LoginScreen(navController: NavController, viewModel : LoginViewModel = koinV
                     .padding(start = 16.dp, end = 16.dp, top = 16.dp),
                 leadingIcon = {
                     Icon(imageVector = Icons.Default.Email, contentDescription = "email icon",tint = PrimaryColor)
-                }
+                },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    capitalization = KeyboardCapitalization.None,
+                    keyboardType = KeyboardType.Text
+                )
             )
 
             OutlinedTextField(
@@ -141,6 +151,11 @@ fun LoginScreen(navController: NavController, viewModel : LoginViewModel = koinV
                         )
                     }
                 },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Password,
+                    capitalization = KeyboardCapitalization.None,
+                    autoCorrectEnabled = false
+                ),
                 visualTransformation = if (passwordVisible.value) VisualTransformation.None else PasswordVisualTransformation(),
             )
 
